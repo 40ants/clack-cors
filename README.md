@@ -43,7 +43,7 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 <a id="x-28CLACK-CORS-3AMAKE-CORS-MIDDLEWARE-20FUNCTION-29"></a>
 
-### [function](9969) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (error-response \*default-error-response\*)
+### [function](9896) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (error-response \*default-error-response\*)
 
 Returns a Clack middleware which can be used to add `CORS` `HTTP` headers to response.
 
@@ -70,19 +70,19 @@ will be called with Lack's `env` plist. Most useful keys in this plist are
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-ORIGIN-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](7601) `clack-cors:*default-allowed-origin*` "*"
+### [variable](fb4d) `clack-cors:*default-allowed-origin*` "*"
 
 Default value to return as `Access-Control-Allow-Origin` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-HEADERS-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](1bfb) `clack-cors:*default-allowed-headers*` "Authorization"
+### [variable](a7e9) `clack-cors:*default-allowed-headers*` "Authorization"
 
 Default value to return as `Access-Control-Allow-Origin` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ERROR-RESPONSE-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](b2de) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
+### [variable](d310) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
  ("{\"code\": -1, \"message\": \"Unhandled error.\"}"))
 
 Default value to return if main app will not return a list of three items.
@@ -91,10 +91,10 @@ Default value to return if main app will not return a list of three items.
 [5c32]: https://40ants.com/clack-cors/
 [74db]: https://github.com/40ants/clack-cors
 [1700]: https://github.com/40ants/clack-cors/actions
-[7601]: https://github.com/40ants/clack-cors/blob/ba1ebdbaa0893a68aa790dd8ade0d5273568dffb/src/core.lisp#L17
-[1bfb]: https://github.com/40ants/clack-cors/blob/ba1ebdbaa0893a68aa790dd8ade0d5273568dffb/src/core.lisp#L20
-[b2de]: https://github.com/40ants/clack-cors/blob/ba1ebdbaa0893a68aa790dd8ade0d5273568dffb/src/core.lisp#L23
-[9969]: https://github.com/40ants/clack-cors/blob/ba1ebdbaa0893a68aa790dd8ade0d5273568dffb/src/core.lisp#L61
+[fb4d]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L17
+[a7e9]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L20
+[d310]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L23
+[9896]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L61
 [b14f]: https://github.com/40ants/clack-cors/issues
 [8236]: https://quickdocs.org/alexandria
 [7f8b]: https://quickdocs.org/log4cl
