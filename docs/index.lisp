@@ -12,7 +12,10 @@
   (:import-from #:clack-cors-docs/changelog
                 #:@changelog)
   (:import-from #:clack-cors
-                #:make-cors-middleware)
+                #:make-cors-middleware
+                #:*default-error-response*
+                #:*default-allowed-headers*
+                #:*default-allowed-origin*)
   (:import-from #:docs-config
                 #:docs-config)
   (:export #:@index
@@ -76,4 +79,7 @@ You can install this library from Quicklisp, but you want to receive updates qui
                     :ignore-words ("ASDF:PACKAGE-INFERRED-SYSTEM"
                                    "ASDF"
                                    "40A"))
-  (make-cors-middleware function))
+  (make-cors-middleware function)
+  (*default-allowed-origin* variable)
+  (*default-allowed-headers* variable)
+  (*default-error-response* variable))

@@ -7,18 +7,24 @@
   (:import-from #:serapeum
                 #:prependf
                 #:fmt)
-  (:export #:make-cors-middleware))
+  (:export #:make-cors-middleware
+           #:*default-allowed-origin*
+           #:*default-allowed-headers*
+           #:*default-error-response*))
 (in-package #:clack-cors)
 
 
-(defvar *default-allowed-origin* "*")
+(defvar *default-allowed-origin* "*"
+  "Default value to return as `Access-Control-Allow-Origin` HTTP header.")
 
-(defvar *default-allowed-headers* "Authorization")
+(defvar *default-allowed-headers* "Authorization"
+  "Default value to return as `Access-Control-Allow-Origin` HTTP header.")
 
 (defvar *default-error-response*
   (list 500
         (list :Content-Type "application/json")
-        (list "{\"code\": -1, \"message\": \"Unhandled error.\"}")))
+        (list "{\"code\": -1, \"message\": \"Unhandled error.\"}"))
+  "Default value to return if main app will not return a list of three items.")
 
 
 (defun value-or-funcall (value env)
