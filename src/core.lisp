@@ -72,7 +72,7 @@
    ```
    (list 500
         (list :Content-Type \"application/json\")
-        (list \"{\"code\": -1, \"message\": \"Unhandled error.\"}\"))
+        (list \"{\\\"code\\\": -1, \\\"message\\\": \\\"Unhandled error.\\\"}\"))
    ```
 
    All arguments can be given as a function of one argument, in this case a function
