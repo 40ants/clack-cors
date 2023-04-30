@@ -11,6 +11,8 @@
                 #:defsection-copy)
   (:import-from #:clack-cors-docs/changelog
                 #:@changelog)
+  (:import-from #:clack-cors
+                #:make-cors-middleware)
   (:import-from #:docs-config
                 #:docs-config)
   (:export #:@index
@@ -32,14 +34,16 @@
   
   (list :theme
         (find-symbol "40ANTS-THEME"
-                     (find-package "40ANTS-DOC-THEME-40ANTS")))
-  )
+                     (find-package "40ANTS-DOC-THEME-40ANTS"))))
 
 
 (defsection @index (:title "clack-cors - A Clack middleware to set CORS related HTTP headers."
                     :ignore-words ("JSON"
                                    "HTTP"
                                    "TODO"
+                                   "CORS"
+                                   ":REQUEST-METHOD"
+                                   ":REQUEST-URI"
                                    "Unlicense"
                                    "REPL"
                                    "GIT"))
@@ -72,6 +76,4 @@ You can install this library from Quicklisp, but you want to receive updates qui
                     :ignore-words ("ASDF:PACKAGE-INFERRED-SYSTEM"
                                    "ASDF"
                                    "40A"))
-  "
-TODO: Write a library description. Put some examples here.
-")
+  (make-cors-middleware function))

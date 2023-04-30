@@ -11,3 +11,6 @@
   :pathname "src"
   :depends-on ("clack-cors/core")
   :in-order-to ((test-op (test-op "clack-cors-tests"))))
+
+
+(asdf:register-system-packages "log4cl" (list "LOG"))
