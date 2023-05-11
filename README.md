@@ -6,7 +6,7 @@
 
 ## CLACK-CORS ASDF System Details
 
-* Version: 0.1.0
+* Version: 0.2.0
 
 * Description: A Clack middleware to set `CORS` related `HTTP` headers.
 
@@ -43,17 +43,17 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 <a id="x-28CLACK-CORS-3AMAKE-CORS-MIDDLEWARE-20FUNCTION-29"></a>
 
-### [function](9896) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (error-response \*default-error-response\*)
+### [function](f343) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (error-response \*default-error-response\*)
 
-Returns a Clack middleware which can be used to add `CORS` `HTTP` headers to response.
+Returns a Clack middleware which can be used to override `CORS` `HTTP` headers in response.
 
-By default, it adds:
+You can pass arguments `ALLOWED-ORIGIN`, `ALLOWED-HEADERS` and `ALLOWED-METHODS` to override corresponding headers.
 
-* Access-Control-Allow-Origin: *
-
-* Access-Control-Allow-Headers: Authorization
-
-But you can pass arguments `ALLOWED-ORIGIN` and `ALLOWED-HEADERS` to change this behaviour.
+If given, these arguments are extend headers, returned by the main application. For example, if main application
+already returns `Access-Control-Allow-Headers` with value `Content-Type`, then it will be overwritten with
+the value `Authorization`. To implement a smarter logic, pass as an argument a function of two variables - initial
+`env` plist and resulting headers `plist`. The function should return a string which will be used
+to replace a header value.
 
 Also, you can provide a `ERROR-RESPONSE` argument which will be used as response
 in case if original `APP` returns response other than a list of three items. This argument
@@ -64,25 +64,31 @@ should be a list like this:
      (list :Content-Type "application/json")
      (list "{\"code\": -1, \"message\": \"Unhandled error.\"}"))
 ```
-All arguments can be given as a function of one argument, in this case a function
-will be called with Lack's `env` plist. Most useful keys in this plist are
-`:REQUEST-METHOD` and `:REQUEST-URI`.
+All arguments can be given as a function of two argument, in this case a function
+will be called with Lack's `env` plist and a plist of headers returned by the main application.
+Most useful keys in the `env` plist are `:REQUEST-METHOD` and `:REQUEST-URI`.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-ORIGIN-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](fb4d) `clack-cors:*default-allowed-origin*` "*"
+### [variable](9f76) `clack-cors:*default-allowed-origin*` nil
 
 Default value to return as `Access-Control-Allow-Origin` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-HEADERS-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](a7e9) `clack-cors:*default-allowed-headers*` "Authorization"
+### [variable](d73b) `clack-cors:*default-allowed-headers*` nil
 
-Default value to return as `Access-Control-Allow-Origin` `HTTP` header.
+Default value to return as `Access-Control-Allow-Headers` `HTTP` header.
+
+<a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-METHODS-2A-20-28VARIABLE-29-29"></a>
+
+### [variable](4ca8) `clack-cors:*default-allowed-methods*` nil
+
+Default value to return as `Access-Control-Allow-Methods` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ERROR-RESPONSE-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](d310) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
+### [variable](5a57) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
  ("{\"code\": -1, \"message\": \"Unhandled error.\"}"))
 
 Default value to return if main app will not return a list of three items.
@@ -91,10 +97,11 @@ Default value to return if main app will not return a list of three items.
 [5c32]: https://40ants.com/clack-cors/
 [74db]: https://github.com/40ants/clack-cors
 [1700]: https://github.com/40ants/clack-cors/actions
-[fb4d]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L17
-[a7e9]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L20
-[d310]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L23
-[9896]: https://github.com/40ants/clack-cors/blob/2dff3fa211f3c4f5d4f8d971238c601db089d3cd/src/core.lisp#L61
+[9f76]: https://github.com/40ants/clack-cors/blob/05ec7e6381f76525ccee2aa91d90eed010f8d66f/src/core.lisp#L18
+[d73b]: https://github.com/40ants/clack-cors/blob/05ec7e6381f76525ccee2aa91d90eed010f8d66f/src/core.lisp#L21
+[4ca8]: https://github.com/40ants/clack-cors/blob/05ec7e6381f76525ccee2aa91d90eed010f8d66f/src/core.lisp#L24
+[5a57]: https://github.com/40ants/clack-cors/blob/05ec7e6381f76525ccee2aa91d90eed010f8d66f/src/core.lisp#L27
+[f343]: https://github.com/40ants/clack-cors/blob/05ec7e6381f76525ccee2aa91d90eed010f8d66f/src/core.lisp#L66
 [b14f]: https://github.com/40ants/clack-cors/issues
 [8236]: https://quickdocs.org/alexandria
 [7f8b]: https://quickdocs.org/log4cl
