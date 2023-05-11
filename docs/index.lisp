@@ -15,6 +15,7 @@
                 #:make-cors-middleware
                 #:*default-error-response*
                 #:*default-allowed-headers*
+                #:*default-allowed-methods*
                 #:*default-allowed-origin*)
   (:import-from #:docs-config
                 #:docs-config)
@@ -82,4 +83,5 @@ You can install this library from Quicklisp, but you want to receive updates qui
   (make-cors-middleware function)
   (*default-allowed-origin* variable)
   (*default-allowed-headers* variable)
+  (*default-allowed-methods* variable)
   (*default-error-response* variable))
