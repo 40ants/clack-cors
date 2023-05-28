@@ -9,6 +9,8 @@
                               "ASDF"
                               "REPL"
                               "HTTP"))
+  (0.2.1 2023-05-28
+         "* Fix error in value-or-funcall function.")
   (0.2.0 2023-05-11
          "* Now given header values are always replace original headers returned by the main application.
 
