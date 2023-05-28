@@ -33,7 +33,7 @@
 
 (defun value-or-funcall (value env response-headers)
   (typecase value
-    (function (funcall value) env response-headers)
+    (function (funcall value env response-headers))
     (t value)))
 
 
