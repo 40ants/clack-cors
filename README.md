@@ -6,20 +6,12 @@
 
 ## CLACK-CORS ASDF System Details
 
-* Version: 0.2.1
-
 * Description: A Clack middleware to set `CORS` related `HTTP` headers.
-
 * Licence: Unlicense
-
 * Author: Alexander Artemenko <svetlyak.40wt@gmail.com>
-
 * Homepage: [https://40ants.com/clack-cors/][5c32]
-
 * Bug tracker: [https://github.com/40ants/clack-cors/issues][b14f]
-
 * Source control: [GIT][74db]
-
 * Depends on: [alexandria][8236], [log4cl][7f8b], [serapeum][c41d]
 
 [![](https://github-actions.40ants.com/40ants/clack-cors/matrix.svg?only=ci.run-tests)][1700]
@@ -43,7 +35,7 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 <a id="x-28CLACK-CORS-3AMAKE-CORS-MIDDLEWARE-20FUNCTION-29"></a>
 
-### [function](859c) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (error-response \*default-error-response\*)
+### [function](58a5) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (error-response \*default-error-response\*)
 
 Returns a Clack middleware which can be used to override `CORS` `HTTP` headers in response.
 
@@ -70,25 +62,25 @@ Most useful keys in the `env` plist are `:REQUEST-METHOD` and `:REQUEST-URI`.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-ORIGIN-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](1e79) `clack-cors:*default-allowed-origin*` nil
+### [variable](b975) `clack-cors:*default-allowed-origin*` nil
 
 Default value to return as `Access-Control-Allow-Origin` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-HEADERS-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](1133) `clack-cors:*default-allowed-headers*` nil
+### [variable](9d07) `clack-cors:*default-allowed-headers*` nil
 
 Default value to return as `Access-Control-Allow-Headers` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-METHODS-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](ade4) `clack-cors:*default-allowed-methods*` nil
+### [variable](8e7c) `clack-cors:*default-allowed-methods*` nil
 
 Default value to return as `Access-Control-Allow-Methods` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ERROR-RESPONSE-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](a476) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
+### [variable](7f32) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
  ("{\"code\": -1, \"message\": \"Unhandled error.\"}"))
 
 Default value to return if main app will not return a list of three items.
@@ -97,11 +89,11 @@ Default value to return if main app will not return a list of three items.
 [5c32]: https://40ants.com/clack-cors/
 [74db]: https://github.com/40ants/clack-cors
 [1700]: https://github.com/40ants/clack-cors/actions
-[1e79]: https://github.com/40ants/clack-cors/blob/96c25874cd1bdebe6872a7cac1ead14773e6bdfe/src/core.lisp#L18
-[1133]: https://github.com/40ants/clack-cors/blob/96c25874cd1bdebe6872a7cac1ead14773e6bdfe/src/core.lisp#L21
-[ade4]: https://github.com/40ants/clack-cors/blob/96c25874cd1bdebe6872a7cac1ead14773e6bdfe/src/core.lisp#L24
-[a476]: https://github.com/40ants/clack-cors/blob/96c25874cd1bdebe6872a7cac1ead14773e6bdfe/src/core.lisp#L27
-[859c]: https://github.com/40ants/clack-cors/blob/96c25874cd1bdebe6872a7cac1ead14773e6bdfe/src/core.lisp#L66
+[b975]: https://github.com/40ants/clack-cors/blob/0000ac4dd3ee6742f42d78415543f9ee9558ef29/src/core.lisp#L18
+[9d07]: https://github.com/40ants/clack-cors/blob/0000ac4dd3ee6742f42d78415543f9ee9558ef29/src/core.lisp#L21
+[8e7c]: https://github.com/40ants/clack-cors/blob/0000ac4dd3ee6742f42d78415543f9ee9558ef29/src/core.lisp#L24
+[7f32]: https://github.com/40ants/clack-cors/blob/0000ac4dd3ee6742f42d78415543f9ee9558ef29/src/core.lisp#L27
+[58a5]: https://github.com/40ants/clack-cors/blob/0000ac4dd3ee6742f42d78415543f9ee9558ef29/src/core.lisp#L66
 [b14f]: https://github.com/40ants/clack-cors/issues
 [8236]: https://quickdocs.org/alexandria
 [7f8b]: https://quickdocs.org/log4cl
