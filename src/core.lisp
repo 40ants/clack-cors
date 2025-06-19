@@ -24,6 +24,9 @@
 (defvar *default-allowed-methods* nil
   "Default value to return as `Access-Control-Allow-Methods` HTTP header.")
 
+(defvar *access-control-allow-credentials* nil
+  "Default value to return as `Access-Control-Allow-Credentials` HTTP header.")  
+
 (defvar *default-error-response*
   (list 500
         (list :Content-Type "application/json")
@@ -40,7 +43,7 @@
 ;; To make it easier to debug:
 (declaim (notinline process-cors-middleware))
 
-(defun process-cors-middleware (env app access-control allowed-headers allowed-methods error-response)
+(defun process-cors-middleware (env app access-control allowed-headers allowed-methods allowed-credentials error-response)
   (let* ((response (funcall app env)))
     (cond
       ((length= 3 response)
@@ -55,6 +58,9 @@
          (setf (getf headers :Access-Control-Allow-Methods)
                (or (value-or-funcall allowed-methods env headers)
                    (getf headers :Access-Control-Allow-Methods)))
+         (setf (getf headers :Access-Control-Allow-Credentials)
+               (or (value-or-funcall allowed-credentials env headers)
+                   (getf headers :Access-Control-Allow-Credentials)))          
          (list code
                headers
                content)))
@@ -67,10 +73,11 @@
                                  (allowed-origin *default-allowed-origin*)
                                  (allowed-headers *default-allowed-headers*)
                                  (allowed-methods *default-allowed-methods*)
+                                 (allowed-credentials *access-control-allow-credentials*)
                                  (error-response *default-error-response*))
   "Returns a Clack middleware which can be used to override CORS HTTP headers in response.
 
-   You can pass arguments ALLOWED-ORIGIN, ALLOWED-HEADERS and ALLOWED-METHODS to override corresponding headers.
+   You can pass arguments ALLOWED-ORIGIN, ALLOWED-HEADERS,ALLOWED-CREDENTIALS and ALLOWED-METHODS to override corresponding headers.
 
    If given, these arguments are extend headers, returned by the main application. For example, if main application
    already returns `Access-Control-Allow-Headers` with value `Content-Type`, then it will be overwritten with
@@ -95,6 +102,7 @@
   (check-type allowed-origin (or string function))
   (check-type allowed-headers (or string function))
   (check-type allowed-methods (or string function))
+  (check-type allowed-credentials (or string function))
   (check-type error-response (or list function))
   
   (flet ((cors-middleware (env)
@@ -102,5 +110,6 @@
                                     allowed-origin
                                     allowed-headers
                                     allowed-methods
+                                    allowed-credentials
                                     error-response)))
     #'cors-middleware))

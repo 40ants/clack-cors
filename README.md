@@ -35,11 +35,11 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 <a id="x-28CLACK-CORS-3AMAKE-CORS-MIDDLEWARE-20FUNCTION-29"></a>
 
-### [function](308b) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (error-response \*default-error-response\*)
+### [function](308b) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (allowed-credentials \*default-allowed-credentials\*) (error-response \*default-error-response\*)
 
 Returns a Clack middleware which can be used to override `CORS` `HTTP` headers in response.
 
-You can pass arguments `ALLOWED-ORIGIN`, `ALLOWED-HEADERS` and `ALLOWED-METHODS` to override corresponding headers.
+You can pass arguments `ALLOWED-ORIGIN`, `ALLOWED-HEADERS`, `ALLOWED-CREDENTIALS` and `ALLOWED-METHODS` to override corresponding headers.
 
 If given, these arguments are extend headers, returned by the main application. For example, if main application
 already returns `Access-Control-Allow-Headers` with value `Content-Type`, then it will be overwritten with
@@ -77,6 +77,10 @@ Default value to return as `Access-Control-Allow-Headers` `HTTP` header.
 ### [variable](9eb4) `clack-cors:*default-allowed-methods*` nil
 
 Default value to return as `Access-Control-Allow-Methods` `HTTP` header.
+
+### [variable](9eb4) `clack-cors:*default-allowed-credentials*` nil
+
+Default value to return as `Access-Control-Allow-Credentials` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ERROR-RESPONSE-2A-20-28VARIABLE-29-29"></a>
 
