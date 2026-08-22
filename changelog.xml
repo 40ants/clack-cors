@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>clack-cors-docs ChangeLog</title>
+        <link>https://40ants.com/clack-cors/</link>
+        <generator>xml-emitter</generator>
+        <language>en-us</language>
+        <item>
+            <title>0.2.1  (2023-05-28)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Fix error in value-or-funcall function.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.2.0  (2023-05-11)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Now given header values are always replace original headers returned by the main application.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;This change was made to give more control on how headers are returned.
+* Another change is that now functions given instead of literal values, should accept two arguments
+  instead of one.&lt;/p&gt;&lt;p&gt;First argument is an &lt;code&gt;env&lt;/code&gt; plist describing the request and second argument is
+  &lt;code&gt;response-headers&lt;/code&gt; plist, returned by the main app. Using both of them, user or the library
+  can have more flexible control on how these headers should be produced.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Also, the library now supports additional header &lt;code&gt;Access-Control-Allow-Methods&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.1.0  (2023-02-05)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Initial version.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+        </item>
+    </channel>
+</rss>
