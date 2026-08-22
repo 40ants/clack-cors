@@ -35,7 +35,7 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 <a id="x-28CLACK-CORS-3AMAKE-CORS-MIDDLEWARE-20FUNCTION-29"></a>
 
-### [function](308b) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (error-response \*default-error-response\*)
+### [function](3359) `clack-cors:make-cors-middleware` app &key (allowed-origin \*default-allowed-origin\*) (allowed-headers \*default-allowed-headers\*) (allowed-methods \*default-allowed-methods\*) (error-response \*default-error-response\*)
 
 Returns a Clack middleware which can be used to override `CORS` `HTTP` headers in response.
 
@@ -62,25 +62,25 @@ Most useful keys in the `env` plist are `:REQUEST-METHOD` and `:REQUEST-URI`.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-ORIGIN-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](b52b) `clack-cors:*default-allowed-origin*` nil
+### [variable](123c) `clack-cors:*default-allowed-origin*` nil
 
 Default value to return as `Access-Control-Allow-Origin` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-HEADERS-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](07aa) `clack-cors:*default-allowed-headers*` nil
+### [variable](9d83) `clack-cors:*default-allowed-headers*` nil
 
 Default value to return as `Access-Control-Allow-Headers` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ALLOWED-METHODS-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](9eb4) `clack-cors:*default-allowed-methods*` nil
+### [variable](0144) `clack-cors:*default-allowed-methods*` nil
 
 Default value to return as `Access-Control-Allow-Methods` `HTTP` header.
 
 <a id="x-28CLACK-CORS-3A-2ADEFAULT-ERROR-RESPONSE-2A-20-28VARIABLE-29-29"></a>
 
-### [variable](24e9) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
+### [variable](fa97) `clack-cors:*default-error-response*` (500 (:CONTENT-TYPE "application/json")
  ("{\"code\": -1, \"message\": \"Unhandled error.\"}"))
 
 Default value to return if main app will not return a list of three items.
@@ -89,11 +89,11 @@ Default value to return if main app will not return a list of three items.
 [5c32]: https://40ants.com/clack-cors/
 [74db]: https://github.com/40ants/clack-cors
 [1700]: https://github.com/40ants/clack-cors/actions
-[b52b]: https://github.com/40ants/clack-cors/blob/b13b3351963120c990e2b6b53bf04ab0571ea8eb/src/core.lisp#L18
-[07aa]: https://github.com/40ants/clack-cors/blob/b13b3351963120c990e2b6b53bf04ab0571ea8eb/src/core.lisp#L21
-[9eb4]: https://github.com/40ants/clack-cors/blob/b13b3351963120c990e2b6b53bf04ab0571ea8eb/src/core.lisp#L24
-[24e9]: https://github.com/40ants/clack-cors/blob/b13b3351963120c990e2b6b53bf04ab0571ea8eb/src/core.lisp#L27
-[308b]: https://github.com/40ants/clack-cors/blob/b13b3351963120c990e2b6b53bf04ab0571ea8eb/src/core.lisp#L66
+[123c]: https://github.com/40ants/clack-cors/blob/154ece83b9633071765832d3761aedc1735ada68/src/core.lisp#L18
+[9d83]: https://github.com/40ants/clack-cors/blob/154ece83b9633071765832d3761aedc1735ada68/src/core.lisp#L21
+[0144]: https://github.com/40ants/clack-cors/blob/154ece83b9633071765832d3761aedc1735ada68/src/core.lisp#L24
+[fa97]: https://github.com/40ants/clack-cors/blob/154ece83b9633071765832d3761aedc1735ada68/src/core.lisp#L27
+[3359]: https://github.com/40ants/clack-cors/blob/154ece83b9633071765832d3761aedc1735ada68/src/core.lisp#L66
 [b14f]: https://github.com/40ants/clack-cors/issues
 [8236]: https://quickdocs.org/alexandria
 [7f8b]: https://quickdocs.org/log4cl
